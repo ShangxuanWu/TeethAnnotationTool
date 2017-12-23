@@ -7,8 +7,8 @@
 
 // for SegmentQApp
 #define MAX_TWO_PT_DST 150 
-#define WIDGET_H 1280
-#define WIDGET_W 1280
+#define WIDGET_H 720
+#define WIDGET_W 720
 #define INSTRUCTION_RATIO 1.4
 #define BOARDER 20
 #define SQUARE_SIZE 30

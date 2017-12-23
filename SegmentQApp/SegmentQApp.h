@@ -46,7 +46,7 @@ class SegmentQApp : public QDialog
 
 public:
 	SegmentQApp();
-	SegmentQApp(std::string name, std::string result_fd);
+	SegmentQApp(std::string name, std::string original_obj_fn, std::string result_fd);
 	QDialogButtonBox *buttonBox;
 
 	public slots:
@@ -66,6 +66,7 @@ private:
 	void createQVTKWidget();
 	void createBottomButtons();
 	std::string replaceStrSpace(std::string str);
+	std::string _original_obj_fn;
 	std::string _full_result_fn;
 	std::string _original_name;
 };

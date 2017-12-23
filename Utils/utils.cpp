@@ -46,16 +46,19 @@ bool isValidFile(QString path) {
 }
 
 // return true if the dir exists, but always delete all the things in the dir
-bool mkdirIfMissing(QString abs_path)
+bool mkdirIfMissing(QString abs_path, bool delete_existing_files)
 {
 	if (QDir(abs_path).exists())
 	{
-		QDir dir(abs_path);
-		dir.setNameFilters(QStringList() << "*.*");
-		dir.setFilter(QDir::Files);
-		foreach(QString dirFile, dir.entryList())
+		if (delete_existing_files)
 		{
-			dir.remove(dirFile);
+			QDir dir(abs_path);
+			dir.setNameFilters(QStringList() << "*.*");
+			dir.setFilter(QDir::Files);
+			foreach(QString dirFile, dir.entryList())
+			{
+				dir.remove(dirFile);
+			}
 		}
 		return true;
 	}
@@ -66,9 +69,9 @@ bool mkdirIfMissing(QString abs_path)
 	}
 }
 
-bool mkdirIfMissing(std::string abs_path)
+bool mkdirIfMissing(std::string abs_path, bool delete_original_files)
 {
-	return mkdirIfMissing(QString::fromStdString(abs_path));
+	return mkdirIfMissing(QString::fromStdString(abs_path), delete_original_files);
 }
 
 QString getResultFolder(QString base_fd)

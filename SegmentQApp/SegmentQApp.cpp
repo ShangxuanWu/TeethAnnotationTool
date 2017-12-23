@@ -194,9 +194,12 @@ SegmentQApp::SegmentQApp()
 	*/
 }
 
-SegmentQApp::SegmentQApp(std::string name, std::string result_fd)
+SegmentQApp::SegmentQApp(std::string name, std::string original_obj_fn, std::string result_fd)
 {
+	setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
+
 	_original_name = name;
+	_original_obj_fn = original_obj_fn;
 
 	_total_layout = new QVBoxLayout;
 	_upper_layout = new QHBoxLayout;
@@ -251,10 +254,9 @@ void SegmentQApp::createInstruction()
 
 void SegmentQApp::createBottomButtons()
 {
-	buttonBox = new QDialogButtonBox(QDialogButtonBox::Save | QDialogButtonBox::Discard);
+	buttonBox = new QDialogButtonBox(QDialogButtonBox::Save);
 	_lower_layout->addWidget(buttonBox);
 	connect(buttonBox, SIGNAL(accepted()), this, SLOT(savePartMesh()));
-	connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 }
 
 
@@ -265,11 +267,9 @@ void SegmentQApp::createQVTKWidget()
 	qvtkWidget->setFixedWidth(WIDGET_W);
 	_upper_layout->addWidget(qvtkWidget);
 
-	std::string inputFilename = "C:\\Users\\shangxuanu\\Desktop\\teeth\\sample_scan\\UpperJawScan.stl";
-
 	vtkSmartPointer<vtkSTLReader> reader =
 		vtkSmartPointer<vtkSTLReader>::New();
-	reader->SetFileName(inputFilename.c_str());
+	reader->SetFileName(_original_obj_fn.c_str());
 	reader->Update();
 
 	vtkSmartPointer<vtkPolyDataMapper> mapper =

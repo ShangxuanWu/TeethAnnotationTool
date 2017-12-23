@@ -5,6 +5,7 @@ singleTeethBox::singleTeethBox(QWidget *parent) : QWidget(parent)
 {
 	_part_name = QString::fromStdString("");
 	_result_fd = "";
+	_original_obj_fn = "";
 	setupLayout();
 }
 
@@ -40,7 +41,7 @@ void singleTeethBox::handleButton()
 			tr("No folder selected. Please select a folder first!"));
 		return;
 	}
-	_popup = new SegmentQApp(_part_name.toStdString(), _result_fd);
+	_popup = new SegmentQApp(_part_name.toStdString(), _original_obj_fn, _result_fd);
 	connect(_popup->buttonBox, SIGNAL(accepted()), this, SLOT(checkBox()));
 	_popup ->show();
 }
@@ -53,4 +54,9 @@ void singleTeethBox::checkBox()
 void singleTeethBox::setResultFd(std::string result_fd)
 {
 	_result_fd = result_fd;
+}
+
+void singleTeethBox::setOriginalObj(std::string original_obj_fn)
+{
+	_original_obj_fn = original_obj_fn;
 }

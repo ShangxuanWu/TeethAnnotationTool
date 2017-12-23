@@ -44,7 +44,8 @@ private:
 
 	// for buttons
 	singleTeethBox **buttons;
-	QDialogButtonBox *buttonBox;
+	QPushButton *finish_button;
+	//QDialogButtonBox *buttonBox;
 	QGridLayout *total_button_layout;
 
 	// for menu

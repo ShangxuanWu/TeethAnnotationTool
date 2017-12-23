@@ -4,6 +4,8 @@
 
 Dialog::Dialog()
 {
+	setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
+
 	createMenu();
 	createPathBar();
 	createHorizontalGroupBox();
@@ -13,7 +15,8 @@ Dialog::Dialog()
 	main_layout->setMenuBar(menuBar);
 	main_layout->addLayout(path_line_layout);
 	main_layout->addLayout(total_button_layout);
-	main_layout->addWidget(buttonBox);
+	//main_layout->addWidget(buttonBox);
+	main_layout->addWidget(finish_button, 0, Qt::AlignRight);
 	setLayout(main_layout);
 
 	setWindowTitle(tr("Teeth Annotation Tool @ Oculus Research Pittsburgh"));
@@ -67,15 +70,17 @@ void Dialog::createPathBar()
 
 void Dialog::createBottomButtons()
 {
-	buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-	connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-	connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+	//buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+	//connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+	//connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+	finish_button = new QPushButton("Finished Annotating This Tooth");
+	connect(finish_button, SIGNAL(clicked()), this, SLOT(accept()));
 }
 
 void Dialog::openFolder()
 {
 	now_dir = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
-		"C:\\Users\\shangxuanu\\Dropbox (Personal)\\Oculus\\teeth\\sample_scan",
+		".",
 		QFileDialog::ShowDirsOnly);
 	if (isValidFolder(now_dir))
 	{
@@ -86,10 +91,23 @@ void Dialog::openFolder()
 		path_line->setText(config::wrong_path_line_string.c_str());
 	}
 	QString result_dir = getResultFolder(now_dir);
+	// set result folder
 	for (int i = 0; i < config::h_directions.size() * config::v_directions.size() * numButtons; i++)
 	{
 		buttons[i]->setResultFd(result_dir.toStdString());
 	}
+	
 	mkdirIfMissing(result_dir);
 	_now_dir = now_dir;
+
+	// set original obj path
+	for (int i = 0; i < config::h_directions.size() * config::v_directions.size() * numButtons; i++)
+	{
+		if ( i < config::h_directions.size() * numButtons)
+			buttons[i]->setOriginalObj( _now_dir.toStdString() + "\\UpperJawScan.stl");
+		else
+			buttons[i]->setOriginalObj( _now_dir.toStdString() + "\\LowerJawScan.stl");
+	}
+
+	// check if obj files exist
 }
