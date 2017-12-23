@@ -20,6 +20,7 @@ public slots:
 	void checkBox();
 	void setOriginalObj(std::string original_obj_fn);
 	void setResultFd(std::string result_fd);
+	void setCkbxChecked();
 
 private:
 	QString _part_name;

@@ -54,6 +54,8 @@ Binary tested on Win10 64bit fresh system.
 - After finish defining the boundary, you can click the middle button to show the cropping result.
 - If you are not satisfied with the cropped result, just close the window. If you think the cropped result is good, click `save`.
 
+### 2.3 Click "Finish this People" Button
+
 
 ## 3. Dependencies and Build Instructions
 Following are dependencies for building from source code:

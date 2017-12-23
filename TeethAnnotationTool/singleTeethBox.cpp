@@ -60,3 +60,8 @@ void singleTeethBox::setOriginalObj(std::string original_obj_fn)
 {
 	_original_obj_fn = original_obj_fn;
 }
+
+void singleTeethBox::setCkbxChecked()
+{
+	_ckbox->setChecked(true);
+}

@@ -73,7 +73,7 @@ void Dialog::createBottomButtons()
 	//buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 	//connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
 	//connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-	finish_button = new QPushButton("Finished Annotating This Tooth");
+	finish_button = new QPushButton("Finished Annotating This Person");
 	connect(finish_button, SIGNAL(clicked()), this, SLOT(accept()));
 }
 
@@ -110,4 +110,14 @@ void Dialog::openFolder()
 	}
 
 	// check if obj files exist
+	for (int i = 0; i < config::v_directions.size(); i++) {
+		for (int j = 0; j < config::h_directions.size(); j++) {
+			for (int k = 0; k < config::part_names.size(); k++) {
+				std::string part_str = config::v_directions[i] + ' ' + config::h_directions[j] + ' ' + config::part_names[k];
+				std::string this_part_obj_fn = result_dir.toStdString() + std::to_string(config::teeth_id_hash.at(part_str)) + ".obj";
+				if (isValidFile(this_part_obj_fn))
+					buttons[i * (config::h_directions.size()*config::part_names.size()) + j * (config::part_names.size()) + k]->setCkbxChecked();
+			}
+		}
+	}
 }

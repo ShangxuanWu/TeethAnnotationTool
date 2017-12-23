@@ -45,6 +45,11 @@ bool isValidFile(QString path) {
 	return check_file.exists() && check_file.isFile();
 }
 
+bool isValidFile(std::string path)
+{
+	return isValidFile(QString::fromStdString(path));
+}
+
 // return true if the dir exists, but always delete all the things in the dir
 bool mkdirIfMissing(QString abs_path, bool delete_existing_files)
 {
