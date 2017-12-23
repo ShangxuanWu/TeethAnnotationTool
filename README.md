@@ -46,6 +46,8 @@ Binary tested on Win10 64bit fresh system.
 - Input: Please choose the folder with these files in it:
     - `LowerJawScan.stl`
     - `UpperJawScan.stl`
+    
+- Checkbox of existing cropped parts will be checked automatically.    
 
 - Output: Cropped OBJ files will be stored in `cropped_mesh` folder with corresponding IDs.  
 
