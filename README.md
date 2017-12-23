@@ -39,10 +39,14 @@ This is a teeth annotation tool for cropping out each individual teeth. Followin
 
 
 ## Binary Usage
+### Folder
+- Input: Please choose the folder with `LowerJawScan.stl` and `UpperJawScan.stl` in it.
+- Output: Cropped OBJ files will be stored in `cropped_mesh` folder with corresponding IDs.  
+
 ### Mouse Clicks
 - Please use left click to define the boundary of one tooth.
 - After finish defining the boundary, you can click the middle button to show the cropping result.
-- If 
+- If you are not satisfied with the cropped result, just close the window. If you think the cropped result is good, click `save`.
 
 
 ## Dependencies

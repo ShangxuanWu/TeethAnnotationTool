@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TeethAnnotationTool", "TeethAnnotationTool\TeethAnnotationTool.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{34F40B7A-EB97-4C07-B7A8-F3513CDF4493} = {34F40B7A-EB97-4C07-B7A8-F3513CDF4493}
+		{7342D5EB-EE95-4D20-B620-F10E79DD2D62} = {7342D5EB-EE95-4D20-B620-F10E79DD2D62}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SegmentQApp", "SegmentQApp\SegmentQApp.vcxproj", "{34F40B7A-EB97-4C07-B7A8-F3513CDF4493}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7342D5EB-EE95-4D20-B620-F10E79DD2D62} = {7342D5EB-EE95-4D20-B620-F10E79DD2D62}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Utils", "Utils\Utils.vcxproj", "{7342D5EB-EE95-4D20-B620-F10E79DD2D62}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KeypointQApp", "KeypointQApp\KeypointQApp.vcxproj", "{0B9D424E-ED59-4E08-9D35-D78ADA2FF0CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x86.ActiveCfg = Debug|Win32
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x86.Build.0 = Debug|Win32
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x86.ActiveCfg = Release|Win32
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x86.Build.0 = Release|Win32
+		{34F40B7A-EB97-4C07-B7A8-F3513CDF4493}.Debug|x86.ActiveCfg = Debug|Win32
+		{34F40B7A-EB97-4C07-B7A8-F3513CDF4493}.Debug|x86.Build.0 = Debug|Win32
+		{34F40B7A-EB97-4C07-B7A8-F3513CDF4493}.Release|x86.ActiveCfg = Release|Win32
+		{34F40B7A-EB97-4C07-B7A8-F3513CDF4493}.Release|x86.Build.0 = Release|Win32
+		{7342D5EB-EE95-4D20-B620-F10E79DD2D62}.Debug|x86.ActiveCfg = Debug|Win32
+		{7342D5EB-EE95-4D20-B620-F10E79DD2D62}.Debug|x86.Build.0 = Debug|Win32
+		{7342D5EB-EE95-4D20-B620-F10E79DD2D62}.Release|x86.ActiveCfg = Release|Win32
+		{7342D5EB-EE95-4D20-B620-F10E79DD2D62}.Release|x86.Build.0 = Release|Win32
+		{0B9D424E-ED59-4E08-9D35-D78ADA2FF0CE}.Debug|x86.ActiveCfg = Debug|Win32
+		{0B9D424E-ED59-4E08-9D35-D78ADA2FF0CE}.Debug|x86.Build.0 = Debug|Win32
+		{0B9D424E-ED59-4E08-9D35-D78ADA2FF0CE}.Release|x86.ActiveCfg = Release|Win32
+		{0B9D424E-ED59-4E08-9D35-D78ADA2FF0CE}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB0846DA-E3AB-4EF1-99F1-30BEE3CF5A6C}
+	EndGlobalSection
+EndGlobal

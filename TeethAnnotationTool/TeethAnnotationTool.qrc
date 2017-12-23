@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/TeethAnnotationTool">
+        <file>Teeth.png</file>
+    </qresource>
+</RCC>
